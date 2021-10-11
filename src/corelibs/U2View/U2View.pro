@@ -48,6 +48,7 @@ HEADERS += src/LicenseDialog.h \
            src/ov_msa/MSAEditor.h \
            src/ov_msa/MSAEditorConsensusArea.h \
            src/ov_msa/MSAEditorConsensusCache.h \
+           src/ov_msa/MSAEditorMultilineOverviewArea.h \
            src/ov_msa/MSAEditorOffsetsView.h \
            src/ov_msa/MSAEditorOverviewArea.h \
            src/ov_msa/MSAEditorSequenceArea.h \
@@ -76,6 +77,7 @@ HEADERS += src/LicenseDialog.h \
            src/ov_msa/MsaEditorStatusBar.h \
            src/ov_msa/MsaEditorUserModStepController.h \
            src/ov_msa/MsaEditorWgt.h \
+           src/ov_msa/MsaEditorMultilineWgt.h \
            src/ov_msa/MsaOpSavableTab.h \
            src/ov_msa/MsaUpdatedWidgetInterface.h \
            src/ov_msa/SaveSelectedSequenceFromMSADialogController.h \
@@ -98,12 +100,14 @@ HEADERS += src/LicenseDialog.h \
            src/ov_msa/general/McaGeneralTab.h \
            src/ov_msa/general/McaGeneralTabFactory.h \
            src/ov_msa/helpers/BaseWidthController.h \
+           src/ov_msa/helpers/MultilineBaseWidthController.h \
            src/ov_msa/helpers/DrawHelper.h \
            src/ov_msa/helpers/MaAmbiguousCharactersController.h \
            src/ov_msa/helpers/McaRowHeightController.h \
            src/ov_msa/helpers/MsaRowHeightController.h \
            src/ov_msa/helpers/RowHeightController.h \
            src/ov_msa/helpers/ScrollController.h \
+           src/ov_msa/helpers/MultilineScrollController.h \
            src/ov_msa/highlighting/MSAHighlightingTab.h \
            src/ov_msa/highlighting/MSAHighlightingTabFactory.h \
            src/ov_msa/highlighting/MsaHighlightingSavableTab.h \
@@ -112,13 +116,19 @@ HEADERS += src/LicenseDialog.h \
            src/ov_msa/mca_reads/McaAlternativeMutationsWidget.h \
            src/ov_msa/mca_reads/McaReadsTabFactory.h \
            src/ov_msa/move_to_object/MoveToObjectMaController.h \
+           src/ov_msa/overview/MaEditorMultilineOverviewArea.h \
            src/ov_msa/overview/MaEditorOverviewArea.h \
            src/ov_msa/overview/MaGraphCalculationTask.h \
            src/ov_msa/overview/MaGraphOverview.h \
+           src/ov_msa/overview/MaGraphMultilineOverview.h \
+           src/ov_msa/overview/MaMultilineOverview.h \
+           src/ov_msa/overview/MaMultilineOverviewContextMenu.h \
+           src/ov_msa/overview/MaMultilineOverviewImageExportTask.h \
            src/ov_msa/overview/MaOverview.h \
            src/ov_msa/overview/MaOverviewContextMenu.h \
            src/ov_msa/overview/MaOverviewImageExportTask.h \
            src/ov_msa/overview/MaSangerOverview.h \
+           src/ov_msa/overview/MaSimpleMultilineOverview.h \
            src/ov_msa/overview/MaSimpleOverview.h \
            src/ov_msa/pairwise_alignment/PairAlign.h \
            src/ov_msa/pairwise_alignment/PairAlignFactory.h \
@@ -137,6 +147,7 @@ HEADERS += src/LicenseDialog.h \
            src/ov_msa/view_rendering/MaEditorSequenceArea.h \
            src/ov_msa/view_rendering/MaEditorUtils.h \
            src/ov_msa/view_rendering/MaEditorWgt.h \
+           src/ov_msa/view_rendering/MaEditorMultilineWgt.h \
            src/ov_msa/view_rendering/McaConsensusAreaRenderer.h \
            src/ov_msa/view_rendering/McaReferenceAreaRenderer.h \
            src/ov_msa/view_rendering/SequenceAreaRenderer.h \
@@ -329,6 +340,7 @@ SOURCES += src/LicenseDialog.cpp \
            src/ov_msa/MSAEditor.cpp \
            src/ov_msa/MSAEditorConsensusArea.cpp \
            src/ov_msa/MSAEditorConsensusCache.cpp \
+           src/ov_msa/MSAEditorMultilineOverviewArea.cpp \
            src/ov_msa/MSAEditorOffsetsView.cpp \
            src/ov_msa/MSAEditorOverviewArea.cpp \
            src/ov_msa/MSAEditorSequenceArea.cpp \
@@ -357,6 +369,7 @@ SOURCES += src/LicenseDialog.cpp \
            src/ov_msa/MsaEditorStatusBar.cpp \
            src/ov_msa/MsaEditorUserModStepController.cpp \
            src/ov_msa/MsaEditorWgt.cpp \
+           src/ov_msa/MsaEditorMultilineWgt.cpp \
            src/ov_msa/MsaOpSavableTab.cpp \
            src/ov_msa/SaveSelectedSequenceFromMSADialogController.cpp \
            src/ov_msa/SequenceSelectorWidgetController.cpp \
@@ -378,12 +391,14 @@ SOURCES += src/LicenseDialog.cpp \
            src/ov_msa/general/McaGeneralTab.cpp \
            src/ov_msa/general/McaGeneralTabFactory.cpp \
            src/ov_msa/helpers/BaseWidthController.cpp \
+           src/ov_msa/helpers/MultilineBaseWidthController.cpp \
            src/ov_msa/helpers/DrawHelper.cpp \
            src/ov_msa/helpers/MaAmbiguousCharactersController.cpp \
            src/ov_msa/helpers/McaRowHeightController.cpp \
            src/ov_msa/helpers/MsaRowHeightController.cpp \
            src/ov_msa/helpers/RowHeightController.cpp \
            src/ov_msa/helpers/ScrollController.cpp \
+           src/ov_msa/helpers/MultilineScrollController.cpp \
            src/ov_msa/highlighting/MSAHighlightingTab.cpp \
            src/ov_msa/highlighting/MSAHighlightingTabFactory.cpp \
            src/ov_msa/highlighting/MsaHighlightingSavableTab.cpp \
@@ -391,13 +406,19 @@ SOURCES += src/LicenseDialog.cpp \
            src/ov_msa/mca_reads/McaAlternativeMutationsWidget.cpp \
            src/ov_msa/mca_reads/McaReadsTabFactory.cpp \
            src/ov_msa/move_to_object/MoveToObjectMaController.cpp \
+           src/ov_msa/overview/MaEditorMultilineOverviewArea.cpp \
            src/ov_msa/overview/MaEditorOverviewArea.cpp \
            src/ov_msa/overview/MaGraphCalculationTask.cpp \
+           src/ov_msa/overview/MaGraphMultilineOverview.cpp \
            src/ov_msa/overview/MaGraphOverview.cpp \
+           src/ov_msa/overview/MaMultilineOverview.cpp \
+           src/ov_msa/overview/MaMultilineOverviewContextMenu.cpp \
+           src/ov_msa/overview/MaMultilineOverviewImageExportTask.cpp \
            src/ov_msa/overview/MaOverview.cpp \
            src/ov_msa/overview/MaOverviewContextMenu.cpp \
            src/ov_msa/overview/MaOverviewImageExportTask.cpp \
            src/ov_msa/overview/MaSangerOverview.cpp \
+           src/ov_msa/overview/MaSimpleMultilineOverview.cpp \
            src/ov_msa/overview/MaSimpleOverview.cpp \
            src/ov_msa/pairwise_alignment/PairAlign.cpp \
            src/ov_msa/pairwise_alignment/PairAlignFactory.cpp \
@@ -416,6 +437,7 @@ SOURCES += src/LicenseDialog.cpp \
            src/ov_msa/view_rendering/MaEditorSequenceArea.cpp \
            src/ov_msa/view_rendering/MaEditorUtils.cpp \
            src/ov_msa/view_rendering/MaEditorWgt.cpp \
+           src/ov_msa/view_rendering/MaEditorMultilineWgt.cpp \
            src/ov_msa/view_rendering/McaConsensusAreaRenderer.cpp \
            src/ov_msa/view_rendering/McaReferenceAreaRenderer.cpp \
            src/ov_msa/view_rendering/SequenceAreaRenderer.cpp \
