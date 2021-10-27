@@ -93,8 +93,8 @@ private slots:
 
 protected:
     QWidget *createWidget() override;
-    QWidget *createChildWidget(uint index = 0);
-    void initActions(uint index) override;
+    QWidget *createChildWidget();
+    void initActions(MaEditorWgt *wgt) override;
     void updateActions() override;
 
     QAction *showChromatogramsAction;
@@ -108,7 +108,7 @@ protected:
     /** Selection state controller. */
     McaEditorSelectionController *selectionController;
 
-    void addEditMenu(QMenu *menu) override;
+    void addEditMenu(QMenu *menu, uint uiIndex) override;
     void addAlignmentMenu(QMenu *menu);
     void addAppearanceMenu(QMenu *menu);
     void addNavigationMenu(QMenu *menu);
