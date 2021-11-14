@@ -27,7 +27,7 @@
 
 #include "MSAEditor.h"
 #include "MaEditorFactory.h"
-#include "helpers/ScrollController.h"
+#include "helpers/MultilineScrollController.h"
 
 namespace U2 {
 
@@ -107,9 +107,9 @@ QVariantMap MaEditorState::saveState(MaEditor *v) {
         ss.setMaObjectRef(GObjectReference(maObj));
     }
 
-    MaEditorWgt *wgt = v->getUI();
+    MaEditorMultilineWgt *wgt = v->getUI();
     SAFE_POINT(wgt != nullptr, "MaEditorWgt is NULL", QVariantMap());
-    ScrollController *scrollController = wgt->getScrollController();
+    MultilineScrollController *scrollController = wgt->getScrollController();
     SAFE_POINT(scrollController != nullptr, "ScrollController is NULL", QVariantMap());
 
     int firstBase = scrollController->getFirstVisibleBase();

@@ -49,6 +49,7 @@
 #include "ov_msa/MaEditor.h"
 #include "ov_msa/view_rendering/MaEditorConsensusArea.h"
 #include "ov_msa/view_rendering/MaEditorWgt.h"
+#include "ov_msa/view_rendering/MaEditorMultilineWgt.h"
 
 namespace U2 {
 
@@ -63,7 +64,7 @@ MaExportConsensusWidget::MaExportConsensusWidget(MaEditor *ma_, QWidget *parent)
 
     initSaveController();
 
-    MaEditorConsensusArea *consensusArea = ma->getUI()->getConsensusArea();
+    MaEditorConsensusArea *consensusArea = ma->getUI()->getUI()->getConsensusArea();
     showHint(true);
 
     connect(exportBtn, SIGNAL(clicked()), SLOT(sl_exportClicked()));
@@ -85,7 +86,7 @@ void MaExportConsensusWidget::sl_exportClicked() {
     settings.ma = ma;
     settings.name = ma->getMaObject()->getGObjectName() + "_consensus";
     settings.url = saveController->getSaveFileName();
-    settings.algorithm = ma->getUI()->getConsensusArea()->getConsensusAlgorithm()->clone();
+    settings.algorithm = ma->getUI()->getUI()->getConsensusArea()->getConsensusAlgorithm()->clone();
 
     auto exportTask = new ExportMaConsensusTask(settings);
     connect(exportTask, SIGNAL(si_stateChanged()), this, SLOT(sl_exportTaskStateChanged()));

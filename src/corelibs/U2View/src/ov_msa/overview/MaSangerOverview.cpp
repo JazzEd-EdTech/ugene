@@ -36,6 +36,7 @@
 #include "ov_msa/helpers/BaseWidthController.h"
 #include "ov_msa/helpers/RowHeightController.h"
 #include "ov_msa/helpers/ScrollController.h"
+#include "ov_msa/view_rendering/MaEditorMultilineWgt.h"
 #include "ov_msa/view_rendering/MaEditorSequenceArea.h"
 
 namespace U2 {
@@ -268,7 +269,7 @@ void MaSangerOverview::drawReads() {
         int maRowIndex = editor->getCollapseModel()->getMaRowIndexByViewRowIndex(viewRowIndex);
         const MultipleChromatogramAlignmentRow row = mca->getMcaRow(maRowIndex);
         const U2Region coreRegion = row->getCoreRegion();
-        const U2Region positionRegion = editor->getUI()->getBaseWidthController()->getBasesGlobalRange(coreRegion);
+        const U2Region positionRegion = editor->getUI()->getUI()->getBaseWidthController()->getBasesGlobalRange(coreRegion);
 
         QRect readRect;
         readRect.setX(qRound(positionRegion.startPos / stepX));
