@@ -57,13 +57,13 @@ bool MaEditorWgtEventFilter::eventFilter(QObject *obj, QEvent *event)
         coreLog.info(tr("=============== HoverEnter %1")
                          .arg(QString("0x%1").arg((qulonglong) maEditorWgt)));
 #endif
-        maEditorWgt->getEditor()->getUI()->setActiveChild(maEditorWgt);
+        maEditorWgt->getEditor()->getMaEditorMultilineWgt()->setActiveChild(maEditorWgt);
     } else if (event->type() == QEvent::HoverLeave) {
 #ifdef _DEBUG
         coreLog.info(tr("=============== HoverLeave %1")
                          .arg(QString("0x%1").arg((qulonglong) maEditorWgt)));
 #endif
-        maEditorWgt->getEditor()->getUI()->setActiveChild(nullptr);
+        maEditorWgt->getEditor()->getMaEditorMultilineWgt()->setActiveChild(nullptr);
     }
     // standard event processing
     return QObject::eventFilter(obj, event);
@@ -123,7 +123,6 @@ MaEditorStatusBar *MaEditorWgt::getStatusBar() const {
 
 void MaEditorWgt::initWidgets() {
     setContextMenuPolicy(Qt::CustomContextMenu);
-    setMinimumSize(300, 200);
 
     setWindowIcon(GObjectTypes::getTypeInfo(GObjectTypes::MULTIPLE_SEQUENCE_ALIGNMENT).icon);
 

@@ -30,6 +30,7 @@
 #include "MsaEditorNameList.h"
 #include "MsaEditorSimilarityColumn.h"
 #include "MsaEditorStatusBar.h"
+#include "helpers/ScrollController.h"
 #include "helpers/MsaRowHeightController.h"
 #include "phy_tree/MSAEditorMultiTreeViewer.h"
 
@@ -47,6 +48,9 @@ MsaEditorWgt::MsaEditorWgt(MSAEditor *editor,
     rowHeightController = new MsaRowHeightController(this);
     initActions();
     initWidgets();
+
+    setMinimumSize(sizeHint());
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
 }
 
 MSAEditor *MsaEditorWgt::getEditor() const {
@@ -157,6 +161,23 @@ MSAEditorTreeViewer *MsaEditorWgt::getCurrentTree() const {
 
 MSAEditorMultiTreeViewer *MsaEditorWgt::getMultiTreeViewer() {
     return multiTreeViewer;
+}
+
+QSize MsaEditorWgt::sizeHint() const
+{
+    QSize s = QWidget::sizeHint();
+    return QSize(s.width(), minimumSizeHint().height());
+}
+
+QSize MsaEditorWgt::minimumSizeHint() const
+{
+    QSize s = QWidget::sizeHint();
+    int newHeight = consensusArea->size().height() +
+                    /*sequenceArea->size().height() +*/
+                    rowHeightController->getTotalAlignmentHeight() +
+                    scrollController->getHorizontalScrollBar()->size().height() +
+                    2;
+    return QSize(s.width(), newHeight);
 }
 
 }  // namespace U2
