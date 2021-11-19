@@ -22,16 +22,17 @@
 #include "McaEditorOverviewArea.h"
 
 #include "overview/MaSangerOverview.h"
+#include "view_rendering/MaEditorWgt.h"
 
 namespace U2 {
 
 const QString McaEditorOverviewArea::OVERVIEW_AREA_OBJECT_NAME = "mca_overview_area";
 
 McaEditorOverviewArea::McaEditorOverviewArea(MaEditorWgt *ui)
-    : MaEditorOverviewArea(ui, OVERVIEW_AREA_OBJECT_NAME) {
+    : MaEditorOverviewArea((QWidget *)ui, OVERVIEW_AREA_OBJECT_NAME) {
     isWidgetResizable = true;
 
-    sangerOverview = new MaSangerOverview(ui);
+    sangerOverview = new MaSangerOverview(ui->getEditor(), ui);
     sangerOverview->setObjectName(OVERVIEW_AREA_OBJECT_NAME + QString("_sanger"));
 
     addOverview(sangerOverview);
