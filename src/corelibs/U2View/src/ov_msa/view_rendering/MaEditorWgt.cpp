@@ -113,10 +113,6 @@ QWidget *MaEditorWgt::createHeaderLabelWidget(const QString &text, Qt::Alignment
                              proxyMouseEventsToNameList);
 }
 
-MaEditorStatusBar *MaEditorWgt::getStatusBar() const {
-    return statusBar;
-}
-
 QAction *MaEditorWgt::getUndoAction() const {
     QAction *a = undoFWK->getUndoAction();
     a->setObjectName("msa_action_undo");
@@ -129,7 +125,7 @@ QAction *MaEditorWgt::getRedoAction() const {
     return a;
 }
 
-void MaEditorWgt::initWidgets(bool multilineMode) {
+void MaEditorWgt::initWidgets(bool addStatusBar, bool addOverviewArea) {
     setContextMenuPolicy(Qt::CustomContextMenu);
 
     setWindowIcon(GObjectTypes::getTypeInfo(GObjectTypes::MULTIPLE_SEQUENCE_ALIGNMENT).icon);
@@ -218,7 +214,7 @@ void MaEditorWgt::initWidgets(bool multilineMode) {
     maContainerLayout->addWidget(maSplitter.getSplitter());
     maContainerLayout->setStretch(0, 1);
 
-    if (!multilineMode) {
+    if (addStatusBar) {
         maContainerLayout->addWidget(statusBar);
     }
 
@@ -234,7 +230,7 @@ void MaEditorWgt::initWidgets(bool multilineMode) {
     mainSplitter->addWidget(maContainer);
     mainSplitter->setStretchFactor(0, 2);
 
-    if (!multilineMode) {
+    if (addOverviewArea) {
         if (overviewArea->isResizable()) {
             mainSplitter->addWidget(overviewArea);
             mainSplitter->setCollapsible(1, false);
