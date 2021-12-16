@@ -100,7 +100,6 @@ private slots:
 protected:
     QWidget *createWidget() override;
     void initActions() override;
-    void updateActions() override;
 
     QAction *showChromatogramsAction;
     QAction *showGeneralTabAction;
