@@ -77,6 +77,7 @@ HEADERS += src/LicenseDialog.h \
            src/ov_msa/MsaEditorUserModStepController.h \
            src/ov_msa/MsaEditorWgt.h \
            src/ov_msa/MsaEditorMultilineWgt.h \
+           src/ov_msa/MsaMultilineScrollArea.h \
            src/ov_msa/MsaOpSavableTab.h \
            src/ov_msa/MsaUpdatedWidgetInterface.h \
            src/ov_msa/SaveSelectedSequenceFromMSADialogController.h \
@@ -99,7 +100,6 @@ HEADERS += src/LicenseDialog.h \
            src/ov_msa/general/McaGeneralTab.h \
            src/ov_msa/general/McaGeneralTabFactory.h \
            src/ov_msa/helpers/BaseWidthController.h \
-           src/ov_msa/helpers/MultilineBaseWidthController.h \
            src/ov_msa/helpers/DrawHelper.h \
            src/ov_msa/helpers/MaAmbiguousCharactersController.h \
            src/ov_msa/helpers/McaRowHeightController.h \
@@ -362,6 +362,7 @@ SOURCES += src/LicenseDialog.cpp \
            src/ov_msa/MsaEditorUserModStepController.cpp \
            src/ov_msa/MsaEditorWgt.cpp \
            src/ov_msa/MsaEditorMultilineWgt.cpp \
+           src/ov_msa/MsaMultilineScrollArea.cpp \
            src/ov_msa/MsaOpSavableTab.cpp \
            src/ov_msa/SaveSelectedSequenceFromMSADialogController.cpp \
            src/ov_msa/SequenceSelectorWidgetController.cpp \
@@ -383,7 +384,6 @@ SOURCES += src/LicenseDialog.cpp \
            src/ov_msa/general/McaGeneralTab.cpp \
            src/ov_msa/general/McaGeneralTabFactory.cpp \
            src/ov_msa/helpers/BaseWidthController.cpp \
-           src/ov_msa/helpers/MultilineBaseWidthController.cpp \
            src/ov_msa/helpers/DrawHelper.cpp \
            src/ov_msa/helpers/MaAmbiguousCharactersController.cpp \
            src/ov_msa/helpers/McaRowHeightController.cpp \
