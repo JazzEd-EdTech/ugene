@@ -138,8 +138,6 @@ public:
         return seqAreaHeader;
     }
 
-    MsaUndoRedoFramework *getUndoRedoFramework() const { return undoFWK; }
-
     MaEditorWgtEventFilter *getEventFilter() const { return eventFilter; };
 
 signals:
@@ -163,8 +161,8 @@ protected:
     MaEditorNameList *nameList;
     MaEditorConsensusArea *consensusArea;
     MaEditorOverviewArea *overviewArea;
-    MaEditorStatusBar *statusBar;
     MSAEditorOffsetsViewController *offsetsViewController;
+    MaEditorStatusBar *statusBar;
 
     QWidget *nameAreaContainer;
     QWidget *seqAreaHeader;

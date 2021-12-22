@@ -577,4 +577,8 @@ MaCollapseModel *MaEditor::getCollapseModel() const {
     return collapseModel;
 }
 
+MaUndoRedoFramework *MaEditor::getUndoRedoFramework() const {
+    return undoRedoFramework;
+}
+
 }  // namespace U2
